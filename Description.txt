@@ -1,0 +1,56 @@
+https://www.youtube.com/watch?v=cTJ8QKyLD6A&list=PLwsSnOYjEpei9J0zWjwvSWCnHyqxuPLTW&index=5
+npm = node package manager
+npm install express --save
+    >> --save : package.json에 express 정보를 기록하라.
+package-lock.json : 의존성 package 뿐만 아니라 다른 모듈, package들의 버전 정보를 모두 저장한다.
+~ ~ ~ ~ ~
+
+https://www.youtube.com/watch?v=npHJkeXAp6o&list=PLwsSnOYjEpei9J0zWjwvSWCnHyqxuPLTW&index=6
+listen({portNumber}) : https://expressjs.com/en/5x/api.html#app.listen_path_callback
+    >> portNumber 채널에 request가 있는지 듣고 있다.
+
+get request
+post request
+
+nodemon : 소스 수정시, 변경사항이 있다면 자동으로 재시동해주는 프로그램
+    >> npm install -g nodemon : -g 모든 nodejs 프로그램이 nodemon을 사용할 수 있게 설치하라
+~ ~ ~ ~ ~
+
+https://www.youtube.com/watch?v=bjIR66sZ9kA&list=PLwsSnOYjEpei9J0zWjwvSWCnHyqxuPLTW&index=8
+
+<script src="working.js" defer></script> : defer은 working.js가 실행되더라도, body가 실행될때까지 대기하는 것
+
+GET http://localhost:30003/pages/working.js net::ERR_ABORTED 404 (Not Found)
+    >> 어느 dir에서 working.js를 찾아야하는 지 지정해줘야 한다.
+~ ~ ~ ~ ~
+
+https://www.youtube.com/watch?v=MAnWFOLB-iM&list=PLwsSnOYjEpei9J0zWjwvSWCnHyqxuPLTW&index=9
+HTTP response status code
+
+sendStatus()
+    200 : OK
+    400 : Bad request
+    403 : forbidden(보안 너에게 허용하지 않음)
+    404 : not Found
+    500 : internal server error
+    503 : service unavailable
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+~ ~ ~ ~ ~
+
+
+
+https://www.youtube.com/watch?v=T4L6RQ2AZUs&list=PLwsSnOYjEpei9J0zWjwvSWCnHyqxuPLTW&index=10
+SIGN-UP / SIGN-IN
+<table></table> : table
+<tr></tr> : table row
+<td></td> : table data
+form 테그를 통해 서버에 요청을 보낼 수 있다.
+
+~ ~ ~ ~ ~
+
+
+https://www.youtube.com/watch?v=t5PZ9ICjp1w&list=PLwsSnOYjEpei9J0zWjwvSWCnHyqxuPLTW&index=13
+get 요청에 보낸 데이터가 보이고,
+post 요청은 보낸 데이터가 보이지 않는다.
+
+input submitd이 누르면 input에 id name age password를 서버로 보낸다.
