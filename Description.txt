@@ -48,9 +48,10 @@ form 테그를 통해 서버에 요청을 보낼 수 있다.
 
 ~ ~ ~ ~ ~
 
-
 https://www.youtube.com/watch?v=t5PZ9ICjp1w&list=PLwsSnOYjEpei9J0zWjwvSWCnHyqxuPLTW&index=13
 get 요청에 보낸 데이터가 보이고,
 post 요청은 보낸 데이터가 보이지 않는다.
 
 input submitd이 누르면 input에 id name age password를 서버로 보낸다.
+
+~ ~ ~ ~ ~
