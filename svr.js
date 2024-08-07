@@ -35,39 +35,42 @@ app.post('/process/login', (request, result) => {
             result.end();
             return;
         }
+
+        const exec = conn.query('select `id`, `name` from `users` where `id`=? and `password`=sha1(?)',
+            [paramId, paramPassword],
+            (err, rows) => {
+                conn.release();
+                console.log("executed SQL : " + exec.sql);
+
+                if (err) {
+                    console.log("SQL exection failed")
+                    console.dir(err)
+                    result.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
+                    result.write('<h1>SQL query execute failed</h1>');
+                    result.end();
+                    return;
+                }
+
+                if (rows.length > 0) {
+                    console.log('login id is [%s]', paramId);
+                    console.log('Login success')
+
+                    result.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
+                    result.write('<h2>Login success</h2>');
+                    result.end();
+                } else {
+                    console.log('Re-Confirm login-id & password');
+                    console.log('Login failed')
+
+                    result.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
+                    result.write('<h1>Login failed</h1>');
+                    result.end();
+                }
+            }
+        )
     })
 
-    const exec = conn.query('select `id`, `name` from `users` where `id`=? and `password`=sha1(?)',
-        [paramId, paramPassword],
-        (err, res) => {
-            conn.release();
-            console.log("executed SQL : " + exec.sql);
 
-            if (err) {
-                console.log("SQL exection failed")
-                console.dir(err)
-                result.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
-                result.write('<h1>SQL query execute failed</h1>');
-                result.end();
-                return;
-            }
-
-            if (res) {
-                console.dir(res);
-                console.log('Login success')
-
-                result.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
-                result.write('<h2>Login success</h2>');
-                result.end();
-            } else {
-                console.log('Login failed')
-
-                result.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
-                result.write('<h1>Login failed</h1>');
-                result.end();
-            }
-        }
-    )
 
 })
 
